@@ -7,12 +7,10 @@
 
 # 2eme sc :
 - map compenent : Read list (dont forget props KEY)
-
-# 3eme sc:
 - events onClick ...
 - state (hooks)
 - useState definition 
-# 4eme sc:
+# 3eme sc:
 - take data from inputs 
 - remplir - initialisation a form
 - CRUD react (modified - delete )

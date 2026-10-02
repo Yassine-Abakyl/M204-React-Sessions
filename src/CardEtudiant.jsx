@@ -35,9 +35,3 @@ function CardEtudiant({ etudiant }) {
 }
 
 export default CardEtudiant;
-
-
-// props : sert a echanger l'information entre les composants, on peut passer des informations d'un composant parent vers un composant enfant.
-// we reseve props with destractring like that : CardEtudiant({ nameProps }) => and use it : nameProps
-// we reseve props with simple way like that : CardEtudiant(props) => and use it : props.nameProps
-//ternary condition in jsx : {condition ? ifItsTrueDoThis : orDoThis}
