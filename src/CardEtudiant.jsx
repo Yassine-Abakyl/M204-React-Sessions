@@ -1,8 +1,8 @@
-function CardEtudiant({ etudiant }) {
+function CardEtudiant({ etudiant , remplir }) {
   return (
     <>
       {etudiant.note < 10 ? (
-        <div className="rounded-xl bg-red-50/90 border border-red-200 p-5 shadow-sm transition-all hover:shadow-md">
+        <div onClick={()=>remplir(etudiant)} className="rounded-xl bg-red-50/90 border border-red-200 p-5 shadow-sm transition-all hover:shadow-md">
           <div className="flex justify-between items-start">
             <h3 className="text-lg font-bold text-red-900">
               {etudiant.prenom} {etudiant.nom}
@@ -16,7 +16,7 @@ function CardEtudiant({ etudiant }) {
           </p>
         </div>
       ) : (
-        <div className="rounded-xl bg-emerald-50/90 border border-emerald-200 p-5 shadow-sm transition-all hover:shadow-md">
+        <div onClick={()=>remplir(etudiant)} className="rounded-xl bg-emerald-50/90 border border-emerald-200 p-5 shadow-sm transition-all hover:shadow-md">
           <div className="flex justify-between items-start">
             <h3 className="text-lg font-bold text-emerald-900">
               {etudiant.prenom} {etudiant.nom}
