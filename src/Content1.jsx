@@ -26,21 +26,23 @@ function Content() {
         setEtudiants([...etudiants, { id, nom, prenom, note }])
         initialisation()
     }
-    function initialisation(){
+    function initialisation() {
         setId("")
         setNom("")
         setPrenom("")
         setNote("")
     }
-    function deleteEtudiant(){
-       const filtredEtudiants = etudiants.filter(etudiant=>etudiant.id!==id) 
-       setEtudiants(filtredEtudiants)
-       initialisation()
+    function deleteEtudiant(idEtudiantSelected) {
+        if(confirm("are u sure")){
+            const filtredEtudiants = etudiants.filter(etudiant => etudiant.id !== idEtudiantSelected)
+            setEtudiants(filtredEtudiants)
+            initialisation()
+        }
     }
-    function editEtudiant(){
-        const newEtudiant =  { id: id, nom:nom, prenom:prenom, note:note }
-        const modifiedEtudiants = etudiants.map(etudiant=>{
-            if(etudiant.id == id){
+    function editEtudiant() {
+        const newEtudiant = { id: id, nom: nom, prenom: prenom, note: note }
+        const modifiedEtudiants = etudiants.map(etudiant => {
+            if (etudiant.id == id) {
                 return newEtudiant
             }
             return etudiant
@@ -48,17 +50,16 @@ function Content() {
         setEtudiants(modifiedEtudiants)
         initialisation()
     }
+    let button = <button onClick={ajouter} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-emerald-500/10 text-emerald-600 rounded-2xl cursor">ajouter</button>;
+    if (id && nom && prenom && note) {
+        button = <button onClick={editEtudiant} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-cyan-500/10 text-cyan-600 rounded-2xl cursor">edit</button>;    }
     return (
         <main className="flex-1 p-8 flex flex-col gap-2">
             <input value={id} onChange={(e) => { setId(e.target.value) }} type="text" placeholder="id" />
             <input value={nom} onChange={(e) => { setNom(e.target.value) }} type="text" placeholder="nom" />
             <input value={prenom} onChange={(e) => { setPrenom(e.target.value) }} type="text" placeholder="prenom" />
             <input value={note} onChange={(e) => { setNote(e.target.value) }} type="text" placeholder="note" />
-            <button onClick={ajouter} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-emerald-500/10 text-emerald-600 rounded-2xl cursor">ajouter</button>
-            <button onClick={deleteEtudiant} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-red-500/10 text-red-600 rounded-2xl cursor">delete</button>
-            <button onClick={editEtudiant} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-cyan-500/10 text-cyan-600 rounded-2xl cursor">edit</button>
-            {/* <FormEtudiant etudiants={etudiants} setEtudiants={setEtudiants} /> */}
-
+            {button}
             <h2 className="text-3xl font-bold">
                 Bienvenue
             </h2>
@@ -69,7 +70,7 @@ function Content() {
             <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
                 {etudiants.map(function (item, index) {
-                    return <CardEtudiant key={index} etudiant={item} remplir={remplir} />
+                    return <CardEtudiant key={index} etudiant={item} onRemplir={remplir} onDeleteEtudiant={deleteEtudiant} />
                 })}
 
             </div>

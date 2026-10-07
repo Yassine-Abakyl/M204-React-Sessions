@@ -14,3 +14,5 @@
 - take data from inputs 
 - remplir - initialisation a form
 - CRUD react (modified - delete )
+# 4eme sc:
+- Gestion des Cartes et Passage de Fonctions
