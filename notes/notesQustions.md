@@ -16,3 +16,6 @@
 - CRUD react (modified - delete )
 # 4eme sc:
 - Gestion des Cartes et Passage de Fonctions
+# 5eme sc:
+- cycle de vie d'un composent(montage - update - demontage)
+- USE EFFECT

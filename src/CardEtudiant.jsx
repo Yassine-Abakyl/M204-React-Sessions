@@ -1,4 +1,4 @@
-function CardEtudiant({ etudiant, onRemplir, onDeleteEtudiant }) {
+function CardEtudiant({ etudiant, onRemplir, group , onDeleteEtudiant }) {
   return (
     <>
       {etudiant.note < 10 ? (
@@ -16,7 +16,7 @@ function CardEtudiant({ etudiant, onRemplir, onDeleteEtudiant }) {
           </p>
           <div className="flex gap-2 self-end">
             <button onClick={() => onRemplir(etudiant)} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-cyan-500/10 text-cyan-600 rounded-2xl cursor">edit</button>
-            <button onClick={() => onDeleteEtudiant(etudiant.id)} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-red-500/10 text-red-600 rounded-2xl cursor">delete</button>
+            <button onClick={() => onDeleteEtudiant(etudiant.id,group)} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-red-500/10 text-red-600 rounded-2xl cursor">delete</button>
           </div>
         </div>
       ) : (
@@ -34,7 +34,7 @@ function CardEtudiant({ etudiant, onRemplir, onDeleteEtudiant }) {
           </p>
           <div className="flex gap-2 self-end">
             <button onClick={() => onRemplir(etudiant)} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-cyan-500/10 text-cyan-600 rounded-2xl cursor">edit</button>
-            <button onClick={() => onDeleteEtudiant(etudiant)} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-red-500/10 text-red-600 rounded-2xl cursor">delete</button>
+            <button onClick={() => onDeleteEtudiant(etudiant.id,group)} className="py-2 px-4 shadow-sm cursor-pointer transition duration-200 hover:bg-emerald-500/30  bg-red-500/10 text-red-600 rounded-2xl cursor">delete</button>
           </div>
         </div>
       )}
