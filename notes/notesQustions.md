@@ -19,3 +19,6 @@
 # 5eme sc:
 - cycle de vie d'un composent(montage - update - demontage)
 - USE EFFECT
+# 6eme sc:
+- optimization State
+- cleanUP function
